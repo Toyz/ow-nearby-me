@@ -66,15 +66,15 @@ func (w *Worker) handlePacket(data []byte) {
 		return
 	}
 
-	for idx := range f.Endorsement {
-		f.Endorsement[idx].SID = Hex(f.Endorsement[idx].ID)
-		f.Endorsement[idx].Name = schemes.EndorsementNames[f.Endorsement[idx].SID]
-	}
+	//for idx := range f.Endorsement {
+	//	f.Endorsement[idx].SID = Hex(f.Endorsement[idx].ID)
+	//	f.Endorsement[idx].Name = schemes.EndorsementNames[f.Endorsement[idx].SID]
+	//}
 
-	f.AvatarSID = Hex(f.Avatar)
-	f.PlayerLevelFrameSID = Hex(f.PlayerLevelFrame)
-	f.AccountId = FromHex(strings.Split(f.Account, ":")[0])
-	f.SecondaryAccountId = FromHex(strings.Split(f.SecondaryAccount, ":")[0])
+	//f.AvatarSID = Hex(f.Avatar)
+	//f.PlayerLevelFrameSID = Hex(f.PlayerLevelFrame)
+	//f.AccountId = FromHex(strings.Split(f.Account, ":")[0])
+	//f.SecondaryAccountId = FromHex(strings.Split(f.SecondaryAccount, ":")[0])
 
 	if w.handle != nil {
 		w.handle(f, data)
