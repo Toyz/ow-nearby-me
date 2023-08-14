@@ -10,21 +10,18 @@ type (
 		Build   string `json:"build"`
 
 		Account   string `json:"account"`
-		AccountId string `json:"account_id"`
-
-		SecondaryAccount   string `json:"secondary_account"`
-		SecondaryAccountId string `json:"secondary_account_id"`
-
-		Avatar    int64  `json:"avatar"`
-		AvatarSID string `json:"avatar_sid"`
+		BNetAccount string `json:"bnet_account"`
 
 		Level int `json:"level"`
 
-		PlayerLevelFrame    int64  `json:"pframe"`
-		PlayerLevelFrameSID string `json:"pframe_sid"`
+		Avatar    int64  `json:"avatar"`
+		PlayerLevelFrame int64 `json:"pframe"`
+		NameCard int64 `json:"name_card"`
+		Title int64 `json:"title"`
+
+		Platform int `json:"platform"`
 
 		EndorsementLevel int           `json:"elevel"`
-		Endorsement      []Endorsement `json:"endors"`
 	}
 
 	Endorsement struct {
@@ -51,12 +48,13 @@ func (p Player) MarshalIndent() ([]byte, error) {
 	return json.MarshalIndent(p, "", "  ")
 }
 
-func (p Player) FindEndorsement(id int64) Endorsement {
-	for _, e := range p.Endorsement {
-		if e.ID == id {
-			return e
-		}
-	}
-
-	return Endorsement{}
-}
+// im not worrying about this
+//func (p Player) FindEndorsement(id int64) Endorsement {
+//	for _, e := range p.Endorsement {
+//		if e.ID == id {
+//			return e
+//		}
+//	}
+//
+//	return Endorsement{}
+//}
